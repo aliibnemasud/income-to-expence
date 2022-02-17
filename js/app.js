@@ -21,7 +21,7 @@ function expenceTotal(){
 
 document.getElementById('calculate').addEventListener('click', function(){
     
-    if (getIncomeTotal() > 0 && expenceTotal() > 0) {
+    if ( getIncomeTotal() > 0 && expenceTotal() > 0 && expenceTotal() <= getIncomeTotal() ) {
 
     const expensesText = document.getElementById('total-expenses');
     const balanceText = document.getElementById('remaining-balance');     
@@ -31,7 +31,10 @@ document.getElementById('calculate').addEventListener('click', function(){
     expensesText.innerText = expenceTotal();
     balanceText.innerText = getIncomeTotal() - expenceTotal();
 
+    document.getElementById('aleart-top').style.display = 'none';
+
     }
+    
 
     else{
        document.getElementById('aleart-top').style.display = 'block';
