@@ -3,26 +3,25 @@ document.getElementById('calculate').addEventListener('click', function(){
 
     const income = document.getElementById('income');
     const incomeTotal = parseFloat(income.value);
-    
-
 
     const food = document.getElementById('food');
-    const foodCost = parseFloat(food.value);
-    
+    const foodCost = parseFloat(food.value);    
     const rent = document.getElementById('rent');
     const rentCost = parseFloat(rent.value);
     const clothes = document.getElementById('clothes');
     const clothesCost = parseFloat(clothes.value);
 
-    const totalExpenses = document.getElementById('total-expenses');
-    const totalExpensesvalue = parseFloat(totalExpenses.value);
-
-    const remainingBalance = document.getElementById('remaining-balance');
+    const expensesText = document.getElementById('total-expenses');
+    const balanceText = document.getElementById('remaining-balance');   
     
+    // calculation
+    const totalExpensesValue = foodCost + rentCost + clothesCost;
+    const balance = incomeTotal - totalExpensesValue;   
 
-    totalExpenses.innerText = foodCost + rentCost + clothesCost;
-
-    remainingBalance.innerText = incomeTotal - totalExpensesvalue;
-    
+    // update on the html
+    expensesText.innerText = totalExpensesValue;
+    balanceText.innerText = balance;    
 
 })
+
+
