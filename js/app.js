@@ -14,7 +14,7 @@ function expenceTotal(){
     const clothesCost = parseFloat(clothes.value);     
     
     // calculation
-    
+
     const totalExpensesValue = foodCost + rentCost + clothesCost;    
     return totalExpensesValue;
 }
@@ -27,7 +27,7 @@ document.getElementById('calculate').addEventListener('click', function(){
     // update on the html
 
     expensesText.innerText = expenceTotal();
-    balanceText.innerText = getIncomeTotal() - expenceTotal();   
+    balanceText.innerText = getIncomeTotal() - expenceTotal();  
 
 })
 
@@ -36,9 +36,10 @@ document.getElementById('save').addEventListener('click', function() {
 
     const parsectage = document.getElementById('parsantage').value;
     const parsantageAmount = getIncomeTotal() * parsectage / 100;
-
-
     
-    
+    // update html savings and balanceText
+
+    document.getElementById('savings-amount').innerText = parsantageAmount;
+    document.getElementById('r-blance').innerText = getIncomeTotal() - expenceTotal() - parsantageAmount;
     
 })
