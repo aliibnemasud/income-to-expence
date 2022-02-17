@@ -1,8 +1,11 @@
+//income calculation function
+
 function getIncomeTotal(){
     const income = document.getElementById('income');
     const incomeTotal = parseFloat(income.value);
     return incomeTotal;
 }
+// expence calculatuion funcation
 
 function expenceTotal(){
 
@@ -19,6 +22,8 @@ function expenceTotal(){
     return totalExpensesValue;
 }
 
+// income to expance calculation
+
 document.getElementById('calculate').addEventListener('click', function(){
     
     if ( getIncomeTotal() > 0 && expenceTotal() > 0 && expenceTotal() <= getIncomeTotal() ) {
@@ -34,25 +39,31 @@ document.getElementById('calculate').addEventListener('click', function(){
     document.getElementById('aleart-top').style.display = 'none';
 
     }
-    
-
     else{
        document.getElementById('aleart-top').style.display = 'block';
     }
-    
-      
-
 })
 
+// saving function
 
 document.getElementById('save').addEventListener('click', function() {
 
-    const parsectage = document.getElementById('parsantage').value;
-    const parsantageAmount = getIncomeTotal() * parsectage / 100;
-    
+    const parsentage = document.getElementById('parsantage').value;
+    const parsantageAmount = getIncomeTotal() * parsentage / 100;
+    const rBalance = getIncomeTotal() - expenceTotal();
+
+    if (parsantageAmount > rBalance && parsentage > 0){
+        document.getElementById('aleart-top-savings').style.display = 'block';
+    }
+    else if (isNaN(getIncomeTotal())){
+        document.getElementById('aleart-top').style.display = 'block';
+    }
+    else{
     // update html savings and balanceText
 
     document.getElementById('savings-amount').innerText = parsantageAmount;
     document.getElementById('r-blance').innerText = getIncomeTotal() - expenceTotal() - parsantageAmount;
-    
+
+    document.getElementById('aleart-top-savings').style.display = 'none';
+    }   
 })

@@ -18,12 +18,16 @@
 <body>
     <!-- alert for empty income spate start -->
     <div id="aleart-top" class="alert alert-danger container mt-3 text-center aleart-top" role="alert">
-        Income Input value shouldn't be emplty or nagative(-) number.
-      </div>
+        Income Input value shouldn't be empty or nagative(-) number. And expense cann't be greater then Income.
+    </div>
+
+    <div id="aleart-top-savings" class="alert alert-danger container mt-3 text-center aleart-top" role="alert">
+        Savings could not greater than remaining balance or greater then 100 or Nagative (-).
+    </div>
     <!-- alert for empty income end -->
 
     <section class="container">
-        <h1 class="my-5 text-center fw-bold">Income to expense calculation</h1>
+        <h1 class="my-5 text-center fw-bold">INCOME to <span class="bg-primary text-light p-2 rounded">EXPENSE</span></h1>
         <div class="row">
             <div class="col-lg-6">
                 <img class="img-fluid" src="img/money-calculation.png" alt="">
