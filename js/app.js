@@ -19,15 +19,25 @@ function expenceTotal(){
     return totalExpensesValue;
 }
 
-document.getElementById('calculate').addEventListener('click', function(){    
+document.getElementById('calculate').addEventListener('click', function(){
     
+    if (getIncomeTotal() > 0 && expenceTotal() > 0) {
+
     const expensesText = document.getElementById('total-expenses');
     const balanceText = document.getElementById('remaining-balance');     
 
     // update on the html
 
     expensesText.innerText = expenceTotal();
-    balanceText.innerText = getIncomeTotal() - expenceTotal();  
+    balanceText.innerText = getIncomeTotal() - expenceTotal();
+
+    }
+
+    else{
+       document.getElementById('aleart-top').style.display = 'block';
+    }
+    
+      
 
 })
 
